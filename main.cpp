@@ -845,7 +845,7 @@ void drawSpongeBobBack(float xOffset, float yOffset, float scale)
     glVertex2f(xOffset + (1.5f * scale), yOffset + (-0.4f * scale));
     glEnd();
     // Legs (yellow)
-    glColor3f(1.0, 1.0, 0.4);  // نفس لون الجسم
+    glColor3f(1.0, 1.0, 0.4);  
 
 // Left leg
     drawRect(-0.55f, -1.0f, -0.35f, -1.5f);
@@ -930,16 +930,15 @@ for (char c : text2) {
 
 bool isBlockedByRotatingStick(float nextX, float nextY) {
     float len = 0.58f;
-    float cx = 0.0f, cy = -0.1f;  // مركز الدوران
+    float cx = 0.0f, cy = -0.1f;  
     float rad = angle * M_PI / 180.0f;
 
-    // إحداثيات نهايتي العصاية
     float x1 = cx + len * cos(rad);
     float y1 = cy + len * sin(rad);
     float x2 = cx - len * cos(rad);
     float y2 = cy - len * sin(rad);
 
-    // تقسيم العصاية إلى نقاط للتصادم
+    
     const int steps = 100;
     for (int i = 0; i <= steps; i++) {
         float t = (float)i / steps;
@@ -950,12 +949,12 @@ bool isBlockedByRotatingStick(float nextX, float nextY) {
         float dy = py - nextY;
         float distance = sqrt(dx * dx + dy * dy);
 
-        if (distance < 0.06f) {  // شعاع الأمان أكبر شوية
-            return true;  // ❌ تصادم
+        if (distance < 0.06f) {  
+            return true;  
         }
     }
 
-    return false;  // ✅ لا يوجد تصادم
+    return false;  
 }
 
 
